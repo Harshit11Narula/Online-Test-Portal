@@ -1,0 +1,69 @@
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+/>
+
+<div
+  style="
+    background: url(../../assets/p2.jpg) no-repeat center center fixed;
+    background-size: cover;
+  "
+>
+  <div class="container-fluid mat-typography">
+    <div class="row" style="height: 100vh">
+      <div class="col-5 offset-6 my-4">
+        <header
+          class="text-center text-dark display-3"
+          style="font-family: 'Times New Roman', Times, serif"
+        >
+          General Instruction
+        </header>
+        <div class="text-dark" style="margin-top: 50px; margin-left: 50px">
+          <h1>
+            <span class="glyphicon glyphicon-check text-dark"></span> MCQ type
+            question
+          </h1>
+          <h1>
+            <span class="glyphicon glyphicon-check text-dark"></span> Total
+            number of questions: 15
+          </h1>
+          <h1>
+            <span class="glyphicon glyphicon-check text-dark"></span> Time
+            alloted: 30 minutes
+          </h1>
+          <h1>
+            <span class="glyphicon glyphicon-check text-dark"></span> Each
+            question of 2 points, no negative marks
+          </h1>
+          <h1>
+            <span class="glyphicon glyphicon-check text-dark"></span> Do not
+            refresh the page
+          </h1>
+          <h1>
+            <span class="glyphicon glyphicon-check text-dark"></span> Modify the
+            answer at any time
+          </h1>
+          <h1>
+            <span class="glyphicon glyphicon-check text-dark"></span> Finish the
+            test after complete
+          </h1>
+        </div>
+        <div class="text-dark text-center" style="margin-top: 50px">
+          <h3 class="font-weight-bold">
+            <input type="checkbox" #checkbox name="check" value="" /> I
+            {{ empName }}, have read and understood the above instruction
+          </h3>
+        </div>
+        <div class="text-center">
+          <input
+            type="button"
+            value="Start Test"
+            class="btn btn-primary"
+            (click)="starttest(checkbox.checked)"
+          />
+          <div>{{ warning }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

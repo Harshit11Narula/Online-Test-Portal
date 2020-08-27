@@ -8,9 +8,13 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { StartComponent } from './start/start.component';
+import { TestComponent } from './test/test.component';
+import { QuestionComponent } from './question/question.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent, StartComponent, TestComponent, QuestionComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

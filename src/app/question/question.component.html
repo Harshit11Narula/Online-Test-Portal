@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-10 offset-2">
+    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+      {{ all_question[question_Id-1].question | json }}
+    </h1>
+  </div>
+  <div class="col-10 offset-2">
+    <label class="radio-inline m-3"
+      ><input type="radio" name="optradio" />{{
+        all_question[question_Id-1].option_a | json
+      }}</label
+    >
+    <label class="radio-inline m-3"
+      ><input type="radio" name="optradio" />{{
+        all_question[question_Id-1].option_b | json
+      }}</label
+    >
+    <label class="radio-inline m-3"
+      ><input type="radio" name="optradio" />{{
+        all_question[question_Id-1].option_c | json
+      }}</label
+    >
+    <label class="radio-inline m-3"
+      ><input type="radio" name="optradio" />{{
+        all_question[question_Id-1].option_d | json
+      }}</label
+    >
+  </div>
+
+  <div class="col-4 offset-2">
+      <input type="button" [disabled]="question_Id==1" value="Prev" (click)="prev();">
+  </div>
+  <div class="col-4 offset-2">
+      <input type="button" [disabled]="question_Id == all_question.length" value="Next" (click)="next();">
+  </div>
+
+</div>
