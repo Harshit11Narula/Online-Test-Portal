@@ -12,9 +12,10 @@ import { LoginComponent } from './login/login.component';
 import { StartComponent } from './start/start.component';
 import { TestComponent } from './test/test.component';
 import { QuestionComponent } from './question/question.component';
+import { ScorePageComponent } from './score-page/score-page.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, StartComponent, TestComponent, QuestionComponent],
+  declarations: [AppComponent, LoginComponent, StartComponent, TestComponent, QuestionComponent, ScorePageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

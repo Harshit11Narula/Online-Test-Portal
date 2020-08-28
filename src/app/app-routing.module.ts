@@ -1,3 +1,4 @@
+import { ScorePageComponent } from './score-page/score-page.component';
 import { QuestionComponent } from './question/question.component';
 import { TestComponent } from './test/test.component';
 import { StartComponent } from './start/start.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
     children: [
       { path: ':Eid', component: QuestionComponent},
     ]
-  }
+  },
+  {path: "result" , component:ScorePageComponent}
 ];
 
 @NgModule({

@@ -1,3 +1,66 @@
-<h1>Heading</h1>
+<div style="background: url(../../assets/p4.jfif)">
+<nav class="navbar navbar-expand-lg bg-transparent w-100 navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <div class="d-flex">
+        <img
+          src="../../assets/logo.jpg"
+          alt="Simplilearn"
+          style="width: 90px"
+        />
+        <h2 class="text-dark flex-column ml-3">Online Test Portal</h2>
+      </div>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#toggle"
+      aria-controls="my_toggle_nav"
+      aria-expanded="false"
+      aria-label="Toggle Navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="toggle">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-item nav-link">Help</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-item nav-link">Admin</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="progress">
+  <div
+    class="progress-bar"
+    role="progressbar"
+    [style.width]="time"
+    aria-valuemin="0"
+    aria-valuemax="100"
+  >
+    {{ time }}
+  </div>
+</div>
+
+<div class="d-flex justify-content-around m-3">
+  <h1 style="font-style: oblique">Angular MCQ Quiz</h1>
+  <div class="text-dark">
+    <h5>Time Left- {{ minutesLeft }} : {{ secondLeft }}</h5>
+    <div class="text-center">Welcome Test</div>
+  </div>
+  <div
+    class="text-dark my-auto d-flex p-1"
+    style="border-style: groove; border-radius: 6px; font-size: large"
+  >
+    <div class="mx-3">Maximum Marks: <span class="text-danger">2.0</span></div>
+    <div class="mx-3">Negative Marks: <span class="text-danger">0.0</span></div>
+  </div>
+</div>
+
 <router-outlet></router-outlet>
-<h1>Footer</h1>
+</div>

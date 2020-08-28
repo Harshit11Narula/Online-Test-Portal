@@ -1,37 +1,125 @@
-<div class="row">
-  <div class="col-10 offset-2">
-    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
-      {{ all_question[question_Id-1].question | json }}
-    </h1>
+<div
+  class="d-flex ml-5 mt-5 w-50 shadow justify-content-between"
+  style="
+    height: 40px;
+    border-style: groove;
+    border-radius: 6px;
+    background-color: #d3d3d3;
+  "
+>
+  <h3 class="bg-dark text-center text-light" style="width: 80px; height: 35px">
+    Q. {{ question_Id }}
+  </h3>
+  <div class="mr-4">
+    <img
+      src="../../assets/p3.svg"
+      alt="logo"
+      class="img-fluid text-center"
+      style="height: 35px"
+    />
   </div>
-  <div class="col-10 offset-2">
-    <label class="radio-inline m-3"
-      ><input type="radio" name="optradio" />{{
-        all_question[question_Id-1].option_a | json
-      }}</label
-    >
-    <label class="radio-inline m-3"
-      ><input type="radio" name="optradio" />{{
-        all_question[question_Id-1].option_b | json
-      }}</label
-    >
-    <label class="radio-inline m-3"
-      ><input type="radio" name="optradio" />{{
-        all_question[question_Id-1].option_c | json
-      }}</label
-    >
-    <label class="radio-inline m-3"
-      ><input type="radio" name="optradio" />{{
-        all_question[question_Id-1].option_d | json
-      }}</label
-    >
-  </div>
+</div>
 
-  <div class="col-4 offset-2">
-      <input type="button" [disabled]="question_Id==1" value="Prev" (click)="prev();">
+<div class="d-flex justify-content-around mt-3">
+  <div
+    class="ml-3"
+    style="font-style: inherit; font-size: 30px; width: 900px; height: 450px"
+  >
+    <div>{{ all_question[question_Id - 1].question }}</div>
+    <div>
+      <label class="radio-inline m-3"
+        ><input
+          type="radio"
+          name="optradio"
+          class="mx-5"
+          [checked]="this.selected_ans == 1"
+          value="A"
+          (change)="selectEventHandler(1, $event)"
+        />{{ all_question[question_Id - 1].option_a }}</label
+      >
+    </div>
+    <div>
+      <label class="radio-inline m-3"
+        ><input
+          class="mx-5"
+          type="radio"
+          name="optradio"
+          [checked]="this.selected_ans == 2"
+          value="B"
+          (change)="selectEventHandler(2, $event)"
+        />{{ all_question[question_Id - 1].option_b }}</label
+      >
+    </div>
+    <div>
+      <label class="radio-inline m-3"
+        ><input
+          type="radio"
+          name="optradio"
+          class="mx-5"
+          [checked]="this.selected_ans == 3"
+          value="C"
+          (change)="selectEventHandler(3, $event)"
+        />{{ all_question[question_Id - 1].option_c }}</label
+      >
+    </div>
+    <div>
+      <label class="radio-inline m-3"
+        ><input
+          type="radio"
+          name="optradio"
+          class="mx-5"
+          [checked]="this.selected_ans == 4"
+          value="D"
+          (change)="selectEventHandler(4, $event)"
+        />{{ all_question[question_Id - 1].option_d }}</label
+      >
+    </div>
+    <div class="d-flex">
+      <div class="offset-1">
+        <input
+          class="btn btn-success"
+          type="button"
+          [disabled]="question_Id == 1"
+          value="Prev"
+          (click)="prev()"
+        />
+      </div>
+      <div class="offset-3">
+        <input
+          class="btn btn-success"
+          type="button"
+          value="Reset"
+          (click)="reset()"
+        />
+      </div>
+      <div class="offset-3">
+        <input
+          class="btn btn-success"
+          type="button"
+          [disabled]="question_Id == all_question.length"
+          value="Next"
+          (click)="next()"
+        />
+      </div>
+    </div>
   </div>
-  <div class="col-4 offset-2">
-      <input type="button" [disabled]="question_Id == all_question.length" value="Next" (click)="next();">
+  <div
+    class="text-dark w-25 h-25 d-inline-flex"
+    style="border-style: groove; border-radius: 3px"
+  >
+    <div class="row">
+      <div *ngFor="let event of all_style; let i = index" class="d-flex">
+        <input class="btn m-4" [class]=event  type="button" value={{i+1}} (click)="move(i+1);"/>
+      </div>
+    </div>
   </div>
-
+</div>
+<div class="text-center">
+  <input
+    class="btn btn-primary"
+    type="button"
+    value="Finish Test"
+    style="width: 100%"
+    (click)="finishTest()"
+  />
 </div>
