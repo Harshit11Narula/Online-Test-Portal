@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { state } from '@angular/animations';
+import { ManagequestionService } from '../managequestion.service';
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -11,7 +13,7 @@ export class TestComponent implements OnInit {
   minutesLeft: string;
   secondLeft: string;
   remaining_time: number;
-  constructor(public activatedRoute: ActivatedRoute) {
+  constructor(public activatedRoute: ActivatedRoute, public router: Router, public manageSerive: ManagequestionService) {
     this.time = '0%';
     this.time_rem = 0;
     this.minutesLeft = "15";
@@ -22,6 +24,7 @@ export class TestComponent implements OnInit {
     this.time_rem++;
     this.time = '' + this.time_rem + '%';
     if (this.time_rem == 100) {
+      this.router.navigateByUrl('/result');
       clearInterval(this.pd);
     }
   }, 9000);
@@ -29,6 +32,7 @@ export class TestComponent implements OnInit {
   qw = setInterval(() => {
     this.remaining_time--;
     if (this.remaining_time == 0) {
+      this.router.navigateByUrl('/result', );
       clearInterval(this.qw);
     }
     if ( Math.floor(this.remaining_time / 60.0) < 10) {
@@ -41,8 +45,7 @@ export class TestComponent implements OnInit {
     } else {
       this.secondLeft = '' + this.remaining_time % 60;
     }
-    console.log(this.minutesLeft + " " + this.secondLeft);
-
+    
   }, 1000);
 
   ngOnInit(): void {}
